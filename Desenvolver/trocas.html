@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<center>
+<title>Trocas</title>
+<link rel="stylesheet" href="css/style.css"></link>
+<center><img src="img/fundo1.jpg"alt="10" heigth ="100px" width="400px" ></center>
+<table width="100%" cellspacing="1" cellpadding="3" border="0" bgcolor="#ACFA58">
+<tr>
+<br><br>
+<td><font color="Black" face="arial, verdana, helvetica">
+<center><h1><font face="Arial" color="Red">Devoluções (Cód.,Emp.):</font></h1></center>
+
+
+
+<center><img src="img/devolucoes.jpg"alt="10" heigth ="100px" width="400px" ></center>
+<center><form name = "form1" method= "post" action= "trocas.php" enctype="multipart/form-data">
+<br>
+
+<center>
+<select name="base">
+	<option value="1">Caçador</option>
+	<option value="2">Lages</option>
+	<option value="3">Videira</option>
+	<option value="4">Joinville</option>
+</select> </center>
+<br>
+Empresa:
+<input id="emp" name= "emp" value="1,2" min="1" size ="4" maxlength="5">
+<br><br>
+<center>
+
+Data:		
+<input name="data"  type= "date"  value="<?php echo date('Y/m/d');?>" id="data" />
+
+</center>
+
+
+<br>
+<center><input type="file" name="Arquivo" id="Arquivo" accept="text/xml"><br></center>
+<br>
+<center>
+<input class="btn btn-green" type="submit" value="ENVIAR"/>
+<input class="btn btn-red" type="reset"  value="Cancelar"  />
+		
+	
+
+	
+	
+		</center>
+		
+		
+
+ </font>
+   </td>
+</tr>
+</table>
+
+
+
+
+</center>
+</head>
+<body>
+
+</body>
+</html>

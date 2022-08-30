@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Manipulação de  Estoque</title>
+<center>
+<link rel="stylesheet" href="css/style.css"></link>
+<center><img src="img/fundo1.jpg" alt="10" heigth="100px"
+	width="400px"></center>
+<table width="100%" cellspacing="1" cellpadding="3" border="0"bgcolor="#ACFA58">
+	<tr>
+		<br></br>
+		<td><font color="Black" face="arial, verdana, helvetica">
+		<center>
+		<h1><font face="Arial" color="black">Manipulaçao Estoque</font></h1>
+		</center>
+		<center><img src="img/estoque.png" alt="10" heigth="400px"
+			width="400px"></center>
+		<center>
+		<h3><font face="Arial" color="black">Selecione uma Base:</font></h3>
+		<form name="form1" method="post" action="Manipular.php" enctype="multipart/form-data" ><select
+			name="base">
+			<option value="1">Caçador</option>
+			<option value="2">Lages</option>
+			<option value="3">Videira</option>
+			<option value="4">Joinville</option>
+		</select> <br></br>
+
+
+<script language="JavaScript1.2">
+		<!--
+		var ns6=document.getElementById&&!document.all?1:0
+		var head="display:''"
+		var folder=''
+		function expandit(curobj){
+		folder=ns6?curobj.nextSibling.nextSibling.style:document.all[curobj.sourceIndex+1].style
+		if (folder.display=="none")
+		folder.display=""
+		else
+		folder.display="none"
+		}
+//-->
+</script>
+<input type="radio" name="tipo" value="MA" onClick="expandit(this)">Carregar Arquivo
+<span style="display:none" style=&{head};>
+<br>
+Empresa P/ Manipular:
+<input name= "emp" type= "number" id="emp" min="1" max="1000">
+<br>
+<center><input type="file" name="Arquivo" id="Arquivo" accept=".txt"><br></center>
+</span>
+<br><br>
+
+
+
+			<center><input class="btn btn-green" type="submit"
+			value="ENVIAR" /> <input class="btn btn-red" type="reset"
+			value="Cancelar" /></center>
+		</font></td>
+	</tr>
+</table>
+
+
+</center>
+
+
+
+</head>
+<body>
+
+</body>
+</html>

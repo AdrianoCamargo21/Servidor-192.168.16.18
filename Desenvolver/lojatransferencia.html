@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Grupo Via Brasil</title>
+<center>
+<link rel="stylesheet" href="css/style.css"></link>
+<script language="JavaScript1.2">
+		<!--
+		var ns6=document.getElementById&&!document.all?1:0
+		var head="display:''"
+		var folder=''
+		function expandit(curobj){
+		folder=ns6?curobj.nextSibling.nextSibling.style:document.all[curobj.sourceIndex+1].style
+		if (folder.display=="none")
+		folder.display=""
+		else
+		folder.display="none"
+		}
+//-->
+</script>
+<table width="900" cellspacing="1" cellpadding="3" border="5" bgcolor="#CEF6EC">
+<tr>
+<br><br>
+<br><br>
+<br><br>
+<td><font color="Black" face="arial, verdana, helvetica">
+<br><br>
+<center><img src="img/transferencia.png"alt="10" heigth ="100px" width="200px" ></center>
+<br><br>
+
+<center><form name = "form1" method= "post" action= "lojatransferencia.php"> 
+Selecione a Empresa de Saida da Nfe:
+<select name="origem">
+<option value="1">Loja Rosane</option>
+<option value="2">Loja Lúcelia</option>
+<option value="3">Loja Adrieli</option>
+<option value="4">Loja Vila</option>
+<option value="7">Loja Adriana(Martello)</option>
+<option value="8">Loja Nadia</option>
+<option value="9">Loja Shop/Videira</option>
+<option value="10">Loja Mayara(Atacadão)</option>
+<option value="11">Loja Josiane(Filial Atacadão)</option>
+<option value="12">Loja Lages Via Brasil</option>
+<option value="13">Ferão 18 </option>
+<option value="14">Ferão 20 </option>
+<option value="15">Ferão 22 </option>
+</center>
+</select> 
+<br><br/>
+Código Cliente Destino:			
+<input name= "cliente" type= "number" id="cliente"></p>
+
+Usuário:
+<input name= "login" type= "text" id="login">
+Senha: 	
+<input name= "senha" type= "password" id="senha">
+<br><br>
+<input type="radio" name="tipo" value="R" onClick="expandit(this)">Reimpresão de Nota Fiscal
+<span style="display:none" style=&{head};>
+<h4>Empresa Que Entrou a Nota Fiscal:</h4>
+<select name="destino">
+<option value="1">Loja Rosane</option>
+<option value="2">Loja Lucélia</option>
+<option value="3">Loja Adrieli</option>
+<option value="4">Loja Vila</option>
+<option value="7">Loja Adriana(Martello)</option>
+<option value="8">Loja Nadia</option>
+<option value="9">Loja Shop/Videira</option>
+<option value="10">Loja Mayara(Atacadão)</option>
+<option value="11">Loja Gislaine(Filial Atacadão</option>
+<option value="12">Loja Lages Via Brasil</option>
+<option value="13">Ferão 18 </option>
+<option value="14">Ferão 20 </option>
+<option value="15">Ferão 22 </option>
+</select></p>
+Numero Nfe:
+<input id="nfe" name= "nfe"  min="1"  maxlength="10">
+<br>
+Data de Emisão: 		
+<input  name= "dt" id = "dt" type= "date"  >
+</span>
+<br><br>
+<center>
+
+<input class="btn btn-green" type="submit" value="ENVIAR"/>
+<input class="btn btn-red" type="reset" value="Cancelar" />		
+<br><br>	
+	
+	
+	
+		</center>
+		
+		
+
+ </font>
+   </td>
+</tr>
+</table>
+
+
+
+</center>
+
+</head>
+<body>
+<style>
+
+body { 
+
+background-image: url("img/gif.gif");
+
+background-attachment: fixed;
+
+	
+
+background-attachment: fixed;
+
+
+
+
+}
+
+
+</style>
+</body>
+</html>

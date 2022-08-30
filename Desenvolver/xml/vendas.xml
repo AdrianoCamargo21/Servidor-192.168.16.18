@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<enviNFe xmlns="http://www.portalfiscal.inf.br/nfe" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" versao="1.07">
+<idLote>000000000000001</idLote>
+<NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+<infNFe versao="1.0" Id="NFe4109100160900300019055001000000152382294794">
+<ide>
+<cUF>41</cUF>
+<cNF>382294794</cNF>
+<natOp>venda</natOp>
+<indPag>0</indPag>
+<mod>555555</mod>
+<serie>001</serie>
+<nNF>000000152</nNF>
+<dEmi>0910</dEmi>
+<dSaiEnt>0910</dSaiEnt>
+<tpNF>1</tpNF>
+<cMunFG>4106902</cMunFG>
+<tpImp>1</tpImp>
+<tpEmis>1</tpEmis>
+<cDV>9</cDV>
+<tpAmb>2</tpAmb>
+<finNFe>1</finNFe>
+<procEmi>0</procEmi>
+<verProc>1.0.0</verProc>
+</ide>
+<emit>
+<xCNPJ>01.609.003/0001-90</xCNPJ>
+<xNome>Primeira Empresa</xNome>
+<enderEmit>
+<xLgr>xxxxx Primeira Empresa</xLgr>
+<nro>12345</nro>
+<xBairro>Bairro Primeira Empr</xBairro>
+<cMun>4106902</cMun>
+<xMun>Cidade Primeira Empr</xMun>
+<UF>PR</UF>
+</enderEmit>
+<IE>ISENTO</IE>
+</emit>
+<dest>
+<xCNPJ>01609003000190</xCNPJ>
+<xNome>Antonio Jovinski Rocha</xNome>
+<enderDest>
+<xLgr>Avenida Brasil</xLgr>
+<nro></nro>
+<xBairro>Santo Antonio</xBairro>
+<cMun>99999</cMun>
+<xMun>XXXXX</xMun>
+<UF>PR</UF>
+</enderDest>
+<IE>ISENTO</IE>
+</dest>
+<det nItem='1'>
+<prod>
+<cProd>8000</cProd>
+<xProd>Oito mil</xProd>
+<vProd>146.00</vProd>
+</prod>
+<imposto>
+<ICMS>
+<icms00>
+<CST>00</CST>
+<modBC>1</modBC>
+<vBC>146.00</vBC>
+<pICMS>14.23</pICMS>
+<vICMS>20.7758</vICMS>
+</icms00>
+</ICMS>
+<PIS>
+<PISAliq>
+<CST>01</CST>
+<vBC>146.00</vBC>
+<pPIS>0.65</pPIS>
+<vPIS>0.949</vPIS>
+</PISAliq>
+</PIS>
+<COFINS>
+<COFINSAliq>
+<CST>01</CST>
+<vBC>146.00</vBC>
+<pCOFINS>3</pCOFINS>
+<vCOFINS>4.38</vCOFINS>
+</COFINSAliq>
+</COFINS>
+</imposto>
+</det>
+<det nItem='2'>
+<prod>
+<cProd>4002</cProd>
+<xProd>Quatro mil e dois</xProd>
+<vProd>170.00</vProd>
+</prod>
+<imposto>
+<ICMS>
+<icms00>
+<CST>00</CST>
+<modBC>1</modBC>
+<vBC>170.00</vBC>
+<pICMS>16.35</pICMS>
+<vICMS>27.795</vICMS>
+</icms00>
+</ICMS>
+<PIS>
+<PISAliq>
+<CST>01</CST>
+<vBC>170.00</vBC>
+<pPIS>0.65</pPIS>
+<vPIS>1.105</vPIS>
+</PISAliq>
+</PIS>
+<COFINS>
+<COFINSAliq>
+<CST>01</CST>
+<vBC>170.00</vBC>
+<pCOFINS>3</pCOFINS>
+<vCOFINS>5.1</vCOFINS>
+</COFINSAliq>
+</COFINS>
+</imposto>
+</det>
+<det nItem='3'>
+<prod>
+<cProd>4001</cProd>
+<xProd>Quatro mil e um</xProd>
+<vProd>150.00</vProd>
+</prod>
+<imposto>
+<ICMS>
+<icms00>
+<CST>00</CST>
+<modBC>1</modBC>
+<vBC>150.00</vBC>
+<pICMS>17.42</pICMS>
+<vICMS>26.13</vICMS>
+</icms00>
+</ICMS>
+<PIS>
+<PISAliq>
+<CST>01</CST>
+<vBC>150.00</vBC>
+<pPIS>0.65</pPIS>
+<vPIS>0.975</vPIS>
+</PISAliq>
+</PIS>
+<COFINS>
+<COFINSAliq>
+<CST>01</CST>
+<vBC>150.00</vBC>
+<pCOFINS>3</pCOFINS>
+<vCOFINS>4.5</vCOFINS>
+</COFINSAliq>
+</COFINS>
+</imposto>
+</det>
+<total>
+<ICMSTot>
+<vBC>466</vBC>
+<vICMS>74.7008</vICMS>
+<vPIS>3.029</vPIS>
+<vCOFINS>13.98</vCOFINS>
+<vNF>466</vNF>
+</ICMSTot>
+</total>
+<transp>
+<modFrete>0</modFrete>
+<transporta>
+<CPF>01609003000190</CPF>
+<xNome>Primeiro Transportador</xNome>
+</transporta>
+</transp>
+</infNFe>
+</NFe>
+<NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+<infNFe versao="1.0" Id="NFe4109100160900300019055001000000153359660423">
+<ide>
+<cUF>41</cUF>
+<cNF>359660423</cNF>
+<natOp>venda</natOp>
+<indPag>0</indPag>
+<mod>55</mod>
+<serie>001</serie>
+<nNF>000000153</nNF>
+<dEmi>0910</dEmi>
+<dSaiEnt>0910</dSaiEnt>
+<tpNF>1</tpNF>
+<cMunFG>4106902</cMunFG>
+<tpImp>1</tpImp>
+<tpEmis>1</tpEmis>
+<cDV>0</cDV>
+<tpAmb>2</tpAmb>
+<finNFe>1</finNFe>
+<procEmi>0</procEmi>
+<verProc>1.0.0</verProc>
+</ide>
+<emit>
+<xCNPJ>01.609.003/0001-90</xCNPJ>
+<xNome>Primeira Empresa</xNome>
+<enderEmit>
+<xLgr>Endereo da Primeira Empresa</xLgr>
+<nro>12345</nro>
+<xBairro>Bairro Primeira Empr</xBairro>
+<cMun>4106902</cMun>
+<xMun>Cidade Primeira Empr</xMun>
+<UF>PR</UF>
+</enderEmit>
+<IE>ISENTO</IE>
+</emit>
+<dest>
+<xCNPJ>01609003000190</xCNPJ>
+<xNome>Antonio Prestessss</xNome>
+<enderDest>
+<xLgr>Rua Projetada</xLgr>
+<nro></nro>
+<xBairro>Nodari Ii</xBairro>
+<cMun>99999</cMun>
+<xMun>XXXXX</xMun>
+<UF>PR</UF>
+</enderDest>
+<IE>ISENTO</IE>
+</dest>
+<det nItem='1'>
+<prod>
+<cProd>9000</cProd>
+<xProd>Nove mil</xProd>
+<vProd>682.00</vProd>
+</prod>
+<imposto>
+<ICMS>
+<icms00>
+<CST>00</CST>
+<modBC>1</modBC>
+<vBC>682.00</vBC>
+<pICMS>13.42</pICMS>
+<vICMS>91.5244</vICMS>
+</icms00>
+</ICMS>
+<PIS>
+<PISAliq>
+<CST>01</CST>
+<vBC>682.00</vBC>
+<pPIS>0.65</pPIS>
+<vPIS>4.433</vPIS>
+</PISAliq>
+</PIS>
+<COFINS>
+<COFINSAliq>
+<CST>01</CST>
+<vBC>682.00</vBC>
+<pCOFINS>3</pCOFINS>
+<vCOFINS>20.46</vCOFINS>
+</COFINSAliq>
+</COFINS>
+</imposto>
+</det>
+<total>
+<ICMSTot>
+<vBC>682</vBC>
+<vICMS>91.5244</vICMS>
+<vPIS>4.433</vPIS>
+<vCOFINS>20.46</vCOFINS>
+<vNF>682</vNF>
+</ICMSTot>
+</total>
+<transp>
+<modFrete>0</modFrete>
+<transporta>
+<CPF>01609003000190</CPF>
+<xNome>Primeiro Transportador</xNome>
+</transporta>
+</transp>
+</infNFe>
+</NFe>
+<NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+<infNFe versao="1.0" Id="NFe4109100160900300019055001000000154244819816">
+<ide>
+<cUF>41</cUF>
+<cNF>244819816</cNF>
+<natOp>venda</natOp>
+<indPag>0</indPag>
+<mod>55</mod>
+<serie>001</serie>
+<nNF>000000154</nNF>
+<dEmi>0910</dEmi>
+<dSaiEnt>0910</dSaiEnt>
+<tpNF>1</tpNF>
+<cMunFG>4106902</cMunFG>
+<tpImp>1</tpImp>
+<tpEmis>1</tpEmis>
+<cDV>0</cDV>
+<tpAmb>2</tpAmb>
+<finNFe>1</finNFe>
+<procEmi>0</procEmi>
+<verProc>1.0.0</verProc>
+</ide>
+<emit>
+<xCNPJ>01.609.003/0001-90</xCNPJ>
+<xNome>Primeira Empresa</xNome>
+<enderEmit>
+<xLgr>Endereo da Primeira Empresa</xLgr>
+<nro>12345</nro>
+<xBairro>Bairro Primeira Empr</xBairro>
+<cMun>4106902</cMun>
+<xMun>Cidade Primeira Empr</xMun>
+<UF>PR</UF>
+</enderEmit>
+<IE>ISENTO</IE>
+</emit>
+<dest>
+<xCNPJ>01609003000190</xCNPJ>
+<xNome>Antonio Jovinski Rocha</xNome>
+<enderDest>
+<xLgr>Avenida Brasil</xLgr>
+<nro></nro>
+<xBairro>Santo Antonio</xBairro>
+<cMun>99999</cMun>
+<xMun>XXXXX</xMun>
+<UF>PR</UF>
+</enderDest>
+<IE>ISENTO</IE>
+</dest>
+<det nItem='1'>
+<prod>
+<cProd>3232</cProd>
+<xProd>Tres dois tres dois</xProd>
+<vProd>94.00</vProd>
+</prod>
+<imposto>
+<ICMS>
+<icms00>
+<CST>00</CST>
+<modBC>1</modBC>
+<vBC>94.00</vBC>
+<pICMS>12.55</pICMS>
+<vICMS>11.797</vICMS>
+</icms00>
+</ICMS>
+<PIS>
+<PISAliq>
+<CST>01</CST>
+<vBC>94.00</vBC>
+<pPIS>0.65</pPIS>
+<vPIS>0.611</vPIS>
+</PISAliq>
+</PIS>
+<COFINS>
+<COFINSAliq>
+<CST>01</CST>
+<vBC>94.00</vBC>
+<pCOFINS>3</pCOFINS>
+<vCOFINS>2.82</vCOFINS>
+</COFINSAliq>
+</COFINS>
+</imposto>
+</det>
+<det nItem='2'>
+<prod>
+<cProd>8787</cProd>
+<xProd>Oito sete oito sete Roupeiro</xProd>
+<vProd>280.00</vProd>
+</prod>
+<imposto>
+<ICMS>
+<icms00>
+<CST>00</CST>
+<modBC>1</modBC>
+<vBC>280.00</vBC>
+<pICMS>12.00</pICMS>
+<vICMS>33.6</vICMS>
+</icms00>
+</ICMS>
+<PIS>
+<PISAliq>
+<CST>01</CST>
+<vBC>280.00</vBC>
+<pPIS>0.65</pPIS>
+<vPIS>1.82</vPIS>
+</PISAliq>
+</PIS>
+<COFINS>
+<COFINSAliq>
+<CST>01</CST>
+<vBC>280.00</vBC>
+<pCOFINS>3</pCOFINS>
+<vCOFINS>8.4</vCOFINS>
+</COFINSAliq>
+</COFINS>
+</imposto>
+</det>
+<total>
+<ICMSTot>
+<vBC>374</vBC>
+<vICMS>45.397</vICMS>
+<vPIS>2.431</vPIS>
+<vCOFINS>11.22</vCOFINS>
+<vNF>374</vNF>
+</ICMSTot>
+</total>
+<transp>
+<modFrete>0</modFrete>
+<transporta>
+<CPF>01609003000190</CPF>
+<xNome>Primeiro Transportador</xNome>
+</transporta>
+</transp>
+</infNFe>
+</NFe>
+</enviNFe>

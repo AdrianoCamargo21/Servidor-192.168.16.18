@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>ViaBrasil.bay</title>
+<center>
+<link rel="stylesheet" href="css/style.css"></link>
+<center><img src="img/fundo1.jpg"alt="10" heigth ="100px" width="400px" ></center>
+<table width="1000" cellspacing="1" cellpadding="3" border="0" bgcolor="#ACFA58">
+<tr>
+<br><br>
+<td><font color="Black" face="arial, verdana, helvetica">
+<center><h1><font face="Arial" color="black">Backup</font></h1></center>
+<center><img src="img/ip.jpg"alt="10" heigth ="100px" width="200px" ></center>
+<center><form name = "form1" method= "post" action= "ip.php"> 
+<script language="JavaScript1.2">
+<!--
+var ns6=document.getElementById&&!document.all?1:0
+var head="display:''"
+var folder=''
+function expandit(curobj){
+folder=ns6?curobj.nextSibling.nextSibling.style:document.all[curobj.sourceIndex+1].style
+if (folder.display=="none")
+folder.display=""
+else
+folder.display="none"
+}
+//-->
+</script>
+<input type="radio" name="tipo" value="C" onClick="expandit(this)">Cadastro
+<span style="display:none" style=&{head};>
+</p>
+Ip:
+<input name= "ip" type= "text" value="192.168.10.0" id="ip" min="1" value="1" >
+Descrição:
+<input name = "desc" type= "text" id= "desc">
+Loja Em que está:
+<select name="loja">
+<option value="1">Tatiane</option>
+<option value="2">Esportes</option>
+<option value="3">Maynara</option>
+<option value="4">Adrielle</option>
+<option value="5">Gislaine</option>
+<option value="6">Shop Masp Caçador</option>
+<option value="8">Atacadão</option>
+<option value="7">Martello</option>
+<option value="10">Videira</option>
+<option value="9">Shop Masp Caçador</option>
+</select>
+</p>
+</span>
+	
+<INPUT type="radio" name="tipo" value="L">Listar
+<INPUT type="radio" name="tipo" value="A">Alterar
+<INPUT type="radio" name="tipo" value="E">Excluir
+
+<br><br/>
+
+		
+
+<center>
+<input class="btn btn-green" type="submit" value="ENVIAR"/>
+<input class="btn btn-red" type="reset" value="Cancelar" />		
+	
+
+	
+	
+		</center>
+		
+		
+
+ </font>
+   </td>
+</tr>
+</table>
+
+
+</center>
+
+
+</head>
+<body>
+
+</body>
+</html>

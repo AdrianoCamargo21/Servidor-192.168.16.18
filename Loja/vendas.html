@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<center>
+<title>Vendas</title>
+<link rel="stylesheet" href="css/style.css"></link>
+<center><img src="img/fundo1.jpg"alt="10" heigth ="100px" width="300px" ></center>
+<table width="100%" cellspacing="1" cellpadding="3" border="0" bgcolor="#FFFAF0	">
+<tr>
+<td><font color="Black" face="arial, verdana, helvetica">
+<center><h1><font face="Arial" color="#00FF00">Verefica Valores de Venda:</font></h1></center>
+<center><img src="img/venda.png"alt="10" heigth ="100px" width="300px" ></center>
+<center><form name = "form1" method= "post" action= "vendas.php" ">
+
+	Nome: 	
+		<input name = "login" type= "text" id= "login">
+		<br>	
+	Senha: 	
+		<input name= "senha" type= "password" id="senha">
+		<br>
+<br>
+<INPUT type="radio" name="tipo" checked="yes" value="V">Vendedores	
+<INPUT type="radio" name="tipo" value="L">Lojas 
+<br><br>
+**Caso as datas não sejam prenchidas o sistema pegara como base a data  de HOJE**
+<br><br>
+De:		
+<input name="dataini"  type= "date"  id="dataini" />
+Até:		
+<input name="datafin"  type= "date"  id="datafin" />
+
+
+<center>
+<br>
+<input class="btn btn-green" type="submit" value="ENVIAR"/>
+<input class="btn btn-red" type="reset"  value="Cancelar"  />
+		
+	
+
+	
+	
+		</center>
+		
+		
+
+ </font>
+   </td>
+</tr>
+</table>
+
+
+
+
+</center>
+</head>
+<body>
+
+</body>
+</html>

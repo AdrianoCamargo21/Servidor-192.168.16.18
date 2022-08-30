@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Tranferência</title>
+<center>
+<link rel="stylesheet" href="css/style.css"></link>
+<center><img src="img/fundo1.jpg"alt="10" heigth ="100px" width="400px" ></center>
+<table width="1000" cellspacing="1" cellpadding="3" border="0" bgcolor="#ACFA58">
+<tr>
+<br><br>
+<td><font color="Black" face="arial, verdana, helvetica">
+<center><h1><font face="Arial" color="black">Transferência</font></h1></center>
+<center><img src="img/tansf.png"alt="10" heigth ="100px" width="200px" ></center>
+<center><form name = "form1" method= "post" action= "tranferencia.php"> 
+<br>
+Nome: 	
+<input name = "login" type= "text" id= "login">
+<br>	
+Senha: 	
+<input name= "senha" type= "password" id="senha">
+<br>				
+Numero Da Nfe:	
+<input name= "numeronfe" type= "number" id="numeronfe">
+<br>
+Codigo Do Cliente Da Nfe :	
+<input name= "clientenfe" type= "number" id="clientenfe">
+<br>
+Data Da Nfe :		
+<input name="datanfe"  type= "date"  value="<?php echo date('Y/m/d');?>" id="datanfe" />
+<br>
+Empresa de Destino :	
+<input name= "emp" type= "number" id="emp" min="1" max="20">
+
+<br><br>		
+
+		
+
+<center>
+<input class="btn btn-green" type="submit" value="ENVIAR"/>
+<input class="btn btn-red" type="reset" value="Cancelar" />		
+	
+
+	
+	
+		</center>
+		
+		
+
+ </font>
+   </td>
+</tr>
+</table>
+
+
+</center>
+
+
+</head>
+<body>
+
+</body>
+</html>

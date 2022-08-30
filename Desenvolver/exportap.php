@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Exporta Produtos</title>
+<center><img src="img/fundo1.jpg"alt="10" heigth ="100px" width="400px" ></center>
+</head>
+</html>
+<?php
+date_default_timezone_set('America/Sao_Paulo');
+$hora=date('H:i:s');
+$hora_parte=explode(":",$hora);
+$hora_h=$hora_parte[0];
+$minuto=$hora_parte[1];
+$segundo=$hora_parte[2];
+?>
+<HTML>
+<HEAD>
+<center>
+  <script tpye=text/javascript>
+var segundo=<?php echo $segundo;?>;
+var minuto=<?php echo $minuto;?>;
+var hora=<?php echo $hora_h;?>;
+ function tempo(){
+	  if (segundo<59){
+		   segundo=segundo+1
+		    if (segundo==59){
+			     minuto=minuto+1;
+			      segundo=0;
+			       if (hora==24){
+				        hora=hora+1;
+				         minuto=0;
+				          segundo=0;
+				           }
+		             }
+            }
+   document.getElementById("relogio").innerHTML=(hora+":"+minuto+":"+segundo);
+    }
+</script>
+</center>
+</HEAD>
+<meta name="GENERATOR" content="MAX's HTML Beauty++ ME">
+<body onload="setInterval('tempo();',1000)">
+<div name="relogio" id="relogio"></div>
+<BODY>
+</BODY>
+</HTML>
+<?php header("Content-Type: text/html; charset=ISO-8859-1",true);?>
+<?php
+set_time_limit(9000000000000000);
+$voltalogin="<script>window.location='http://192.168.13.2/Desenvolver/ExportaBomjesus.html'</script>";
+date_default_timezone_set('America/Sao_Paulo');
+$time=date('H:i');
+$dia= date('d-m-Y');
+$codini=$_POST['codini'];
+if ($codini == '') {
+    echo '<script>window.alert(\'Código Inicial Inválido\');</script>';
+    echo $voltalogin;
+}
+$codfin=$_POST['codfin'];
+if ($codfin == '') {
+    echo '<script>window.alert(\'Código Final Inválido\');</script>';
+    echo $voltalogin;
+}
+if ($codfin < $codini) {
+    echo '<script>window.alert(\'Código Final Menor que o Código Inicial\');</script>';
+    echo $voltalogin;
+}
+if(!@($conexaoc=pg_connect ("host=192.168.10.190 dbname=troll_cdr port=5430 user=postgres password=ky$14gr@"))){
+    echo "<p style=background:#000000; align=center <br/><b><font size=30 color=#FF0000>ERRO!!! Sem Comunicação Banco de Dados de Caçador Data:$dia  Hora:$time </font></b></p>";
+    echo "<p style=background:#000000; align=center <br/><b><font size=10 color=#7CFC00>Caso Persista Favor avisar o Adriano</font></b></p>";
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <center><img src="img/error.jpg"alt="300px" heigth ="300px" width="300px" ></center>
+	</head>
+	</html>
+	<?php header("Content-Type: text/html; charset=ISO-8859-1",true);?>
+	<?php
+    exit; 
+}
+echo "<p style=background:#D3D3D3; align=center <br/><b><font size=5 color=#FF0000>Servidor de Caçador Conectado</font></b></p>";
+if(!@($conexaol=pg_connect ("host=192.168.10.190 dbname=silvio_pessoal port=5430 user=postgres password=ky$14gr@"))){
+    echo "<p style=background:#000000; align=center <br/><b><font size=30 color=#FF0000>ERRO!!! Sem Comunicação Banco de Dados de Lages Data:$dia  Hora:$time </font></b></p>";
+    echo "<p style=background:#000000; align=center <br/><b><font size=10 color=#7CFC00>Caso Persista Favor avisar o Adriano</font></b></p>";
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <center><img src="img/error.jpg"alt="300px" heigth ="300px" width="300px" ></center>
+	</head>
+	</html>
+	<?php header("Content-Type: text/html; charset=ISO-8859-1",true);?>
+	<?php
+    exit; 
+}
+echo "<p style=background:#D3D3D3; align=center <br/><b><font size=5 color=#FF0000>Servidor 02 Conectado</font></b></p>";
+
+$sql=("delete from aprodutosl");
+$exsql=pg_query($conexaoc,$sql);
+if (!$exsql){   
+    echo "<p style=background:#000000; align=center <br/><b><font size=30 color=#FF0000>ERRO!!! **Erro ao apagar dados antigos de caçador**</font></b></p>";
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <center><img src="img/X.png"alt="1" heigth ="100px" width="100px" ></center>
+	</head>
+	</html>
+	<?php header("Content-Type: text/html; charset=ISO-8859-1",true);?>
+	<?php
+    exit;    
+}
+$exsql=pg_query($conexaol,$sql);
+if (!$exsql){   
+    echo "<p style=background:#000000; align=center <br/><b><font size=30 color=#FF0000>ERRO!!! **Erro ao apagar dados antigos de caçador**</font></b></p>";
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <center><img src="img/X.png"alt="1" heigth ="100px" width="100px" ></center>
+	</head>
+	</html>
+	<?php header("Content-Type: text/html; charset=ISO-8859-1",true);?>
+	<?php
+    exit;    
+}
+$sql=("insert into aprodutosl select *from aprodutos where ccodproduto >= $codini and ccodproduto <= $codfin");
+$exsql=pg_query($conexaoc,$sql);
+if (!$sql){    
+    echo "<p style=background:#000000; align=center <br/><b><font size=30 color=#FF0000>ERRO!!! **Erro ao Coletar Produtos Sistema de Caçador**</font></b></p>";
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <center><img src="img/X.png"alt="1" heigth ="100px" width="100px" ></center>
+	</head>
+	</html>
+	<?php header("Content-Type: text/html; charset=ISO-8859-1",true);?>
+	<?php
+    exit;    
+}
+$cont=("select count(*) from aprodutosl");
+$excont=pg_query($conexaoc,$cont);
+if(!$exsql){    
+    echo "<p style=background:#000000; align=center <br/><b><font size=30 color=#FF0000>ERRO!!! **Erro ao Contar produtos Coletador em caçador**</font></b></p>";
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <center><img src="img/X.png"alt="1" heigth ="100px" width="100px" ></center>
+	</head>
+	</html>
+	<?php header("Content-Type: text/html; charset=ISO-8859-1",true);?>
+	<?php
+    exit;    
+}
+$rscont=pg_fetch_array($excont);
+$qtdc=$rscont['count'];
+if ($qtdc == '0'){    
+    echo "<p style=background:#D3D3D3; align=center <br/><b><font size=30 color=#DF7401>Nenhum código coletado com esse filtro favor vereficar</font></b></p>";
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <center><img src="img/nenhum.png"alt="1" heigth ="300px" width="300px" ></center>
+	</head>
+	</html>
+	<?php header("Content-Type: text/html; charset=ISO-8859-1",true);?>
+	<?php
+    exit;    
+}
+$sql="select *from aprodutosl ";
+$exsql=pg_query($conexaoc,$sql);
+pg_query($conexaol,"delete from aprodutosl");
+while($row = pg_fetch_assoc($exsql)){
+    $ccodproduto=$row['ccodproduto'];$ctipproduto=$row['ctipproduto'];$cdesproduto=$row['cdesproduto'];$crefporduto=$row['crefporduto'];$cbarproduto=$row['cbarproduto'];$cpveproduto=$row['cpveproduto'];$cpcuproduto=$row['cpcuproduto'];$cpcoproduto=$row['cpcoproduto'];
+    $cuniproduto=$row['cuniproduto'];$cqtdproduto=$row['cqtdproduto'];$cmaxproduto=$row['cmaxproduto'];$clucproduto=$row['clucproduto'];$ceidproduto=$row['ceidproduto'];$cminproduto=$row['cminproduto'];$ccomproduto=$row['ccomproduto'];$cpelproduto=$row['cpelproduto'];
+    $cpebproduto=$row['cpebproduto'];$ccadproduto=$row['ccadproduto'];$cantpoduto=$row['cantpoduto'];$cfotproduto=$row['cfotproduto'];$ccplproduto=$row['ccplproduto'];$cgruporduto=$row['cgruporduto'];
+    if ($cgruporduto=='') {
+        $cgruporduto='NULL';
+    }
+    $clinproduto=$row['clinproduto'];
+    if ($clinproduto=='') {
+        $clinproduto='NULL';
+    }
+    $cmarproduto=$row['cmarproduto'];
+    if ($cmarproduto=='') {
+        $cmarproduto='NULL';
+    }
+    $ctriproduto=$row['ctriproduto'];$cdepproduto=$row['cdepproduto'];
+    if ($cdepproduto=='') {
+        $cdepproduto='NULL';
+    }
+    $csitproduto=$row['csitproduto'];$ctab1produto=$row['ctab1produto'];$ctab2produto=$row['ctab2produto'];$ctab3produto=$row['ctab3produto'];$cdtcadproduto=$row['cdtcadproduto'];$chocadproduto=$row['chocadproduto'];
+    $copcadproduto=$row['copcadproduto'];$cuscadproduto=$row['cuscadproduto'];$cdtatuproduto=$row['cdtatuproduto'];
+    if ($cdtatuproduto=='') {
+        $cdtatuproduto='NULL';
+    } else {
+        $cdtatuproduto="'$cdtatuproduto'";
+    }
+    $copatuproduto=$row['copatuproduto'];$cusatuproduto=$row['cusatuproduto'];$cqtde1produto=$row['cqtde1produto'];$cqtde2produto=$row['cqtde2produto'];$cqtde3produto=$row['cqtde3produto'];
+    $cqtdmtemp=$row['cqtdmtemp'];$cqtd1temp=$row['cqtd1temp'];$cqtd2temp=$row['cqtd2temp'];$cqtd3temp=$row['cqtd3temp'];$cvalcustemp=$row['cvalcustemp'];$cvalcomptemp=$row['cvalcomptemp'];$cvalvendtemp=$row['cvalvendtemp'];$cpriceprotection=$row['cpriceprotection'];$cpriceback=$row['cpriceback'];
+    $cvalortabela=$row['cvalortabela'];$cconfprice=$row['cconfprice'];$cperaltvenda=$row['cperaltvenda'];$cponestoque=$row['cponestoque'];$clistaprecos=$row['clistaprecos'];$tip_lab_loja=$row['tip_lab_loja'];$tot_imp_venda=$row['tot_imp_venda'];$preco_minimo=$row['preco_minimo'];$preco_padrao=$row['preco_padrao'];
+    $per_dif_precos=$row['per_dif_precos'];$imagem=$row['imagem'];$n_pro_comissaofot=$row['n_pro_comissaofot'];$i_pro_tipo_comissao=$row['i_pro_tipo_comissao'];$i_pro_tipo_cobranca=$row['i_pro_tipo_cobranca'];$n_pro_valor_n1=$row['n_pro_valor_n1'];$n_pro_valor_n2=$row['n_pro_valor_n2'];
+    $n_pro_valor_n3=$row['n_pro_valor_n3'];$n_pro_valor_n4=$row['n_pro_valor_n4'];$n_pro_valor_n5=$row['n_pro_valor_n5'];$n_pro_valor_n6=$row['n_pro_valor_n6'];$n_pro_valor_n7=$row['n_pro_valor_n7'];$n_pro_valor_n8=$row['n_pro_valor_n8'];$n_pro_valor_n9=$row['n_pro_valor_n9'];
+    $n_pro_valor_n10=$row['n_pro_valor_n10'];$n_pro_valor_ven1=$row['n_pro_valor_ven1'];$n_pro_valor_ven2=$row['n_pro_valor_ven2'];$n_pro_valor_ven3=$row['n_pro_valor_ven3'];$n_pro_valor_ven4=$row['n_pro_valor_ven4'];$n_pro_valor_ven5=$row['n_pro_valor_ven5'];$n_pro_valor_ven6=$row['n_pro_valor_ven6'];
+    $n_pro_valor_ven7=$row['n_pro_valor_ven7'];$n_pro_valor_ven8=$row['n_pro_valor_ven8'];$n_pro_valor_ven9=$row['n_pro_valor_ven9'];$n_pro_valor_ven10=$row['n_pro_valor_ven10'];$n_pro_perc_comissao=$row['n_pro_perc_comissao'];$cqtde4produto=$row['cqtde4produto'];$cqtde5produto=$row['cqtde5produto'];$cqtde6produto=$row['cqtde6produto'];
+    $cqtde7produto=$row['cqtde7produto'];$cqtde8produto=$row['cqtde8produto'];$cqtde9produto=$row['cqtde9produto'];$cqtde10produto=$row['cqtde10produto'];$cqtde11produto=$row['cqtde11produto']; $cqtde12produto=$row['cqtde12produto'];$cqtde13produto=$row['cqtde13produto'];$cqtde14produto=$row['cqtde14produto'];
+    $cqtde15produto=$row['cqtde15produto'];$cqtde16produto=$row['cqtde16produto'];$cqtde17produto=$row['cqtde17produto'];$cqtde18produto=$row['cqtde18produto'];$cqtde19produto=$row['cqtde19produto'];$cqtde20produto=$row['cqtde20produto'];$cqtde21produto=$row['cqtde21produto'];$cqtde22produto=$row['cqtde22produto'];
+    $cqtde23produto=$row['cqtde23produto'];$cqtde24produto=$row['cqtde24produto'];$cqtde25produto=$row['cqtde25produto'];$cqtde26produto=$row['cqtde26produto'];$cqtde27produto=$row['cqtde27produto'];$cqtde28produto=$row['cqtde28produto'];$cqtde29produto=$row['cqtde29produto'];$cqtde30produto=$row['cqtde30produto'];
+    $i_apr_sequencia=$row['i_apr_sequencia'];$n_apr_valor_ipi_compra=$row['n_apr_valor_ipi_compra'];$n_apr_perc_ipi_compra=$row['n_apr_perc_ipi_compra'];$n_apr_valor_credito_icm=$row['n_apr_valor_credito_icm'];$n_apr_perc_credito_icm=$row['n_apr_perc_credito_icm'];$n_apr_valor_frete=$row['n_apr_valor_frete'];$n_apr_perc_frete=$row['n_apr_perc_frete'];
+    $n_apr_valor_desp_aces=$row['n_apr_valor_desp_aces'];$n_apr_perc_desp_aces=$row['n_apr_perc_desp_aces'];$n_apr_valor_desctos=$row['n_apr_valor_desctos'];$n_apr_perc_desctos=$row['n_apr_perc_desctos'];$n_apr_valor_financeiro=$row['n_apr_valor_financeiro'];$n_apr_perc_financeiro=$row['n_apr_perc_financeiro'];$n_apr_valor_custo_ope=$row['n_apr_valor_custo_ope'];
+    if ($n_apr_valor_custo_ope=='') {
+        $n_apr_valor_custo_ope='NULL';
+    }
+    $n_apr_perc_custo_ope=$row['n_apr_perc_custo_ope'];
+    if ($n_apr_perc_custo_ope=='') {
+        $n_apr_perc_custo_ope='NULL';
+    }
+    $n_apr_valor_impostos=$row['n_apr_valor_impostos'];
+    if ($n_apr_valor_impostos=='') {
+        $n_apr_valor_impostos='NULL';
+    }
+    $n_apr_perc_impostos=$row['n_apr_perc_impostos'];
+    if ($n_apr_perc_impostos=='') {
+        $n_apr_perc_impostos='NULL';
+    }
+    $n_apr_comissao_vend=$row['n_apr_comissao_vend'];$n_apr_perc_vend=$row['n_apr_perc_vend'];$n_apr_valor_lucro=$row['n_apr_valor_lucro'];
+    $n_apr_perc_lucro=$row['n_apr_perc_lucro'];$n_apr_icm_saida=$row['n_apr_icm_saida'];$n_apr_perc_icm_saida=$row['n_apr_perc_icm_saida'];$n_apr_valor_custo_venda=$row['n_apr_valor_custo_venda'];$n_apr_perc_custo_venda=$row['n_apr_perc_custo_venda'];$d_apr_data_formacao=$row['d_apr_data_formacao'];
+    $i_apr_id_aen=$row['i_apr_id_aen'];$i_apr_tipo_formacao=$row['i_apr_tipo_formacao'];$i_apr_tipo_custo=$row['i_apr_tipo_custo'];$i_apr_lucro_sobre=$row['i_apr_lucro_sobre'];$n_apr_perc_reducao=$row['n_apr_perc_reducao'];$n_apr_valor_lucro_zero=$row['n_apr_valor_lucro_zero'];$n_apr_custo_medio=$row['n_apr_custo_medio'];
+    $n_apr_valor_nota_entrada=$row['n_apr_valor_nota_entrada'];$s_apr_principio_ativo=$row['s_apr_principio_ativo'];$s_apr_nome_comercial=$row['s_apr_nome_comercial'];$s_apr_cla_toxologica=$row['s_apr_cla_toxologica'];$s_apr_formulacao=$row['s_apr_formulacao'];$s_apr_primeiros_socorros=$row['s_apr_primeiros_socorros'];
+    $s_apr_antidotos_tratamento=$row['s_apr_antidotos_tratamento'];$s_apr_gru_quimico=$row['s_apr_gru_quimico'];$s_apr_composicao=$row['s_apr_composicao'];$s_apr_sistema_alarme=$row['s_apr_sistema_alarme'];$i_apr_exige_receituario=$row['i_apr_exige_receituario'];
+    if ($i_apr_exige_receituario == '') {
+        $i_apr_exige_receituario='NULL';
+    }    
+    $i_apr_imagem=$row['i_apr_imagem'];
+    if ($i_apr_imagem=='') {
+        $i_apr_imagem='NULL';
+    }
+    $i_apr_folha=$row['i_apr_folha'];
+    if ($i_apr_folha=='') {
+        $i_apr_folha='NULL';
+    }
+    $i_apr_fundo=$row['i_apr_fundo'];
+    if ($i_apr_fundo=='') {
+        $i_apr_fundo='NULL';
+    }
+    $i_apr_moldura=$row['i_apr_moldura'];
+    if ($i_apr_moldura=='') {
+        $i_apr_moldura='NULL';
+    }
+    $i_apr_produto=$row['i_apr_produto'];
+    if ($i_apr_produto=='') {
+        $i_apr_produto='NULL';
+    }
+    $n_apr_val_icms_substituicao=$row['n_apr_val_icms_substituicao'];$n_apr_permite_venda_fracionada=$row['n_apr_permite_venda_fracionada'];
+    if ($n_apr_permite_venda_fracionada=='') {
+        $n_apr_permite_venda_fracionada='NULL';
+    }
+    $n_apr_qtd_acumulada=$row['n_apr_qtd_acumulada'];
+    $s_apr_descricao_grades=$row['s_apr_descricao_grades'];$i_apr_inativa_produto_cp=$row['i_apr_inativa_produto_cp'];$i_apr_permite_venda_zerada=$row['i_apr_permite_venda_zerada'];
+    if ($i_apr_permite_venda_zerada=='') {
+        $i_apr_permite_venda_zerada='NULL';
+    }
+    $s_apr_cfop_dentro_uf=$row['s_apr_cfop_dentro_uf'];$s_apr_cfop_fora_uf=$row['s_apr_cfop_fora_uf'];$i_apr_exige_evento=$row['i_apr_exige_evento']; $s_apr_modulacao=$row['s_apr_modulacao'];
+    $s_apr_borda=$row['s_apr_borda'];$n_apr_qtd_embalagem=$row['n_apr_qtd_embalagem'];$n_apr_kgm2=$row['n_apr_kgm2'];$n_apr_consumo_metor=$row['n_apr_consumo_metor'];$s_apr_potencia=$row['s_apr_potencia'];$s_apr_base=$row['s_apr_base'];$s_apr_tensao=$row['s_apr_tensao'];
+    if ($s_apr_tensao=='') {
+        $s_apr_tensao='NULL';
+    }
+    $i_apr_numero_lote=$row['i_apr_numero_lote'];
+    if ($i_apr_numero_lote=='') {
+        $i_apr_numero_lote='NULL';
+    }
+    $n_apr_preco_fabrica=$row['n_apr_preco_fabrica'];$n_apr_pmc=$row['n_apr_pmc'];$i_apr_medicacao_controlada=$row['i_apr_medicacao_controlada'];
+    $i_apr_tab_medicacao_controlada=$row['i_apr_tab_medicacao_controlada'];$i_apr_lista=$row['i_apr_lista'];$s_apr_desc_reduzida=$row['s_apr_desc_reduzida'];$i_apr_codigo_cnm=$row['i_apr_codigo_cnm'];$s_apr_iat=$row['s_apr_iat'];$s_apr_ippt=$row['s_apr_ippt'];$i_apr_fator_conversao=$row['i_apr_fator_conversao'];$n_apr_tabela4=$row['n_apr_tabela4'];$n_apr_tabela5=$row['n_apr_tabela5'];$n_apr_tabela6=$row['n_apr_tabela6'];$n_apr_tabela7=$row['n_apr_tabela7'];
+    $n_apr_tabela8=$row['n_apr_tabela8'];$n_apr_tabela9=$row['n_apr_tabela9'];$n_apr_tabela10=$row['n_apr_tabela10'];$s_apr_dosagem=$row['s_apr_dosagem'];$i_apr_imp_complem_na_nfe=$row['i_apr_imp_complem_na_nfe'];$s_apr_hash=$row['s_apr_hash'];$i_apr_possui_garantia=$row['i_apr_possui_garantia'];$i_apr_possui_indice_tecnico=$row['i_apr_possui_indice_tecnico'];
+    if ($i_apr_possui_indice_tecnico=='') {
+        $i_apr_possui_indice_tecnico='NULL';
+    }
+    $i_apr_codigo_tem=$row['i_apr_codigo_tem'];
+    if ($i_apr_codigo_tem=='') {
+        $i_apr_codigo_tem='NULL';
+    }
+    $i_paf_ide=$row['i_paf_ide'];
+    if ($i_paf_ide=='') {
+        $i_paf_ide='NULL';
+    }
+    $i_apr_tipo_codificacao=$row['i_apr_tipo_codificacao'];
+    $s_apr_operacao=$row['s_apr_operacao']; $s_apr_codigo_lei116=$row['s_apr_codigo_lei116'];$s_apr_cest=$row['s_apr_cest'];$s_apr_escala_relevante=$row['s_apr_escala_relevante'];$s_apr_cnpj_relevante=$row['s_apr_cnpj_relevante'];$s_apr_cod_benef_fiscal=$row['s_apr_cod_benef_fiscal'];$s_apr_desc_anp=$row['s_apr_desc_anp'];
+    $r1="INSERT INTO aprodutosl(ccodproduto, ctipproduto, cdesproduto, crefporduto, cbarproduto,cpveproduto, cpcuproduto, cpcoproduto, cuniproduto, cqtdproduto,
+            cmaxproduto, clucproduto, ceidproduto, cminproduto, ccomproduto,cpelproduto, cpebproduto, ccadproduto, cucoproduto, cuveproduto,cantpoduto, cfotproduto, ccplproduto, cgruporduto, clinproduto,cmarproduto, ctriproduto, cclaproduto, cdepproduto, csitproduto,ctab1produto, ctab2produto, ctab3produto, cdtcadproduto, chocadproduto,copcadproduto, cuscadproduto, cdtatuproduto, choatuproduto, copatuproduto,cusatuproduto, cqtde1produto, cqtde2produto, cqtde3produto, cqtdmtemp,cqtd1temp, cqtd2temp, cqtd3temp, cvalcustemp, cvalcomptemp, cvalvendtemp,
+            cpriceprotection, cpriceback, cvalortabela, cconfprice, cperaltvenda,cponestoque, clistaprecos, tip_lab_loja, tot_imp_venda, preco_minimo,preco_padrao, per_dif_precos, imagem, n_pro_comissaofot, i_pro_tipo_comissao,i_pro_tipo_cobranca, n_pro_valor_n1, n_pro_valor_n2, n_pro_valor_n3,n_pro_valor_n4, n_pro_valor_n5, n_pro_valor_n6, n_pro_valor_n7,n_pro_valor_n8, n_pro_valor_n9, n_pro_valor_n10, n_pro_valor_ven1,n_pro_valor_ven2, n_pro_valor_ven3, n_pro_valor_ven4, n_pro_valor_ven5,n_pro_valor_ven6, n_pro_valor_ven7, n_pro_valor_ven8, n_pro_valor_ven9,
+            n_pro_valor_ven10, n_pro_perc_comissao, cqtde4produto, cqtde5produto,cqtde6produto, cqtde7produto, cqtde8produto, cqtde9produto, cqtde10produto,cqtde11produto, cqtde12produto, cqtde13produto, cqtde14produto,cqtde15produto, cqtde16produto, cqtde17produto, cqtde18produto,cqtde19produto, cqtde20produto, cqtde21produto, cqtde22produto,cqtde23produto, cqtde24produto, cqtde25produto, cqtde26produto,cqtde27produto, cqtde28produto, cqtde29produto, cqtde30produto,i_apr_sequencia, n_apr_valor_ipi_compra, n_apr_perc_ipi_compra,
+            n_apr_valor_credito_icm, n_apr_perc_credito_icm, n_apr_valor_frete,n_apr_perc_frete, n_apr_valor_desp_aces, n_apr_perc_desp_aces,n_apr_valor_desctos, n_apr_perc_desctos, n_apr_valor_financeiro,n_apr_perc_financeiro, n_apr_valor_custo_ope, n_apr_perc_custo_ope,n_apr_valor_impostos, n_apr_perc_impostos, n_apr_comissao_vend,n_apr_perc_vend, n_apr_valor_lucro, n_apr_perc_lucro, n_apr_icm_saida,n_apr_perc_icm_saida, n_apr_valor_custo_venda, n_apr_perc_custo_venda,d_apr_data_formacao, i_apr_id_aen, i_apr_tipo_formacao, i_apr_tipo_custo,
+            i_apr_lucro_sobre, n_apr_perc_reducao, n_apr_valor_lucro_zero,n_apr_custo_medio, n_apr_valor_nota_entrada, s_apr_principio_ativo,s_apr_nome_comercial, s_apr_cla_toxologica, s_apr_formulacao,s_apr_primeiros_socorros, s_apr_antidotos_tratamento, s_apr_gru_quimico,s_apr_composicao, s_apr_sistema_alarme, i_apr_exige_receituario,i_apr_imagem, i_apr_folha, i_apr_fundo, i_apr_moldura, i_apr_produto,i_apr_codigo_fdim, n_apr_val_icms_substituicao, n_apr_permite_venda_fracionada,n_apr_qtd_acumulada, i_apr_codigo_apr, s_apr_descricao_grades,
+            i_apr_inativa_produto_cp, i_apr_permite_venda_zerada, s_apr_cfop_dentro_uf,s_apr_cfop_fora_uf, i_apr_exige_evento, s_apr_modulacao, s_apr_borda,n_apr_qtd_embalagem, n_apr_kgm2, n_apr_consumo_metor, s_apr_potencia,s_apr_base, s_apr_tensao, i_apr_numero_lote, d_apr_validade,n_apr_preco_fabrica, n_apr_pmc, i_apr_medicacao_controlada, i_apr_tab_medicacao_controlada,i_apr_lista, s_apr_desc_reduzida, i_apr_codigo_cnm, s_apr_iat,s_apr_ippt, i_apr_codigo_baixa_apr, i_apr_fator_conversao, i_apr_codigo_cor,
+            n_apr_tabela4, n_apr_tabela5, n_apr_tabela6, n_apr_tabela7, n_apr_tabela8,n_apr_tabela9, n_apr_tabela10, s_apr_dosagem, i_apr_codigo_tes,i_apr_codigo_tmat, i_apr_codigo_naf, i_apr_imp_complem_na_nfe,s_apr_hash, i_apr_possui_garantia, i_apr_possui_indice_tecnico,i_apr_codigo_tem, i_paf_ide, n_apr_valor_seguro, n_apr_perc_seguro,i_apr_usu_balanca, i_apr_kit, d_apr_data_inicio_promocao, d_apr_data_fim_promocao,n_apr_desconto_normal, n_apr_desconto_tabela1, n_apr_desconto_tabela2,n_apr_desconto_tabela3, n_apr_desconto_tabela4, n_apr_desconto_tabela5,
+            n_apr_desconto_tabela6, n_apr_desconto_tabela7, n_apr_desconto_tabela8,n_apr_desconto_tabela9, n_apr_desconto_tabela10, n_apr_desconto_custo,n_apr_desconto_compra, n_apr_desconto_minimo, n_apr_desconto_padrao,i_apr_com_frete, n_apr_valor_produto_frete, i_apr_com_desp_acesso,n_apr_valor_despesa_produto, i_apr_tipo_codificacao, s_apr_operacao,i_apr_codigo_cna, s_apr_codigo_lei116, i_apr_imprime_grade_nfe,i_apr_imprime_ref_nfe, i_apr_flag_trib_estados, i_apr_produto_fci,n_apr_qtde_31_estoque, n_apr_qtde_32_estoque, n_apr_qtde_33_estoque,
+            n_apr_qtde_34_estoque, n_apr_qtde_35_estoque, n_apr_qtde_36_estoque,n_apr_qtde_37_estoque, n_apr_qtde_38_estoque, n_apr_qtde_39_estoque,n_apr_qtde_40_estoque, n_apr_qtde_41_estoque, n_apr_qtde_42_estoque,n_apr_qtde_43_estoque, n_apr_qtde_44_estoque, n_apr_qtde_45_estoque,n_apr_qtde_46_estoque, n_apr_qtde_47_estoque, n_apr_qtde_48_estoque,n_apr_qtde_49_estoque, n_apr_qtde_50_estoque, s_apr_cest, i_apr_codigo_afo,i_apr_cod_anp, n_apr_perc_pglp, i_apr_codif, n_apr_qtemp_comb,n_apr_qtde_defeito, s_apr_escala_relevante, s_apr_cnpj_relevante,
+            s_apr_cod_benef_fiscal, s_apr_desc_anp, n_apr_perc_gas_natural,n_apr_gas_importado, n_apr_valor_partida)VALUES('$ccodproduto','$ctipproduto','$cdesproduto','$crefporduto','$cbarproduto','$cpveproduto','$cpcuproduto','$cpcoproduto','$cuniproduto','$cqtdproduto','$cmaxproduto','$clucproduto','$ceidproduto','$cminproduto','$ccomproduto','$cpelproduto','$cpebproduto','$ccadproduto',NULL,NULL,'$cantpoduto','$cfotproduto','$ccplproduto',$cgruporduto,$clinproduto,$cmarproduto,'$ctriproduto',NULL,$cdepproduto,'$csitproduto','$ctab1produto','$ctab2produto',
+            '$ctab3produto','$cdtcadproduto','$chocadproduto','$copcadproduto','$cuscadproduto',$cdtatuproduto,NULL,'$copatuproduto','$cusatuproduto','$cqtde1produto','$cqtde2produto','$cqtde3produto','$cqtdmtemp','$cqtd1temp','$cqtd2temp','$cqtd3temp','$cvalcustemp','$cvalcomptemp','$cvalvendtemp','$cpriceprotection','$cpriceback','$cvalortabela','$cconfprice','$cperaltvenda','$cponestoque','$clistaprecos','$tip_lab_loja','$tot_imp_venda','$preco_minimo','$preco_padrao','$per_dif_precos','$imagem','$n_pro_comissaofot','$i_pro_tipo_comissao','$i_pro_tipo_cobranca','$n_pro_valor_n1',
+            '$n_pro_valor_n2','$n_pro_valor_n3','$n_pro_valor_n4','$n_pro_valor_n5','$n_pro_valor_n6','$n_pro_valor_n7','$n_pro_valor_n8','$n_pro_valor_n9','$n_pro_valor_n10','$n_pro_valor_ven1','$n_pro_valor_ven2','$n_pro_valor_ven3','$n_pro_valor_ven4','$n_pro_valor_ven5','$n_pro_valor_ven6','$n_pro_valor_ven7','$n_pro_valor_ven8','$n_pro_valor_ven9','$n_pro_valor_ven10','$n_pro_perc_comissao','$cqtde4produto','$cqtde5produto','$cqtde6produto','$cqtde7produto','$cqtde8produto','$cqtde9produto','$cqtde10produto','$cqtde11produto','$cqtde12produto','$cqtde13produto','$cqtde14produto','$cqtde15produto',
+'$cqtde16produto','$cqtde17produto','$cqtde18produto','$cqtde19produto','$cqtde20produto','$cqtde21produto','$cqtde22produto','$cqtde23produto','$cqtde24produto','$cqtde25produto','$cqtde26produto','$cqtde27produto','$cqtde28produto','$cqtde29produto','$cqtde30produto','$i_apr_sequencia','$n_apr_valor_ipi_compra','$n_apr_perc_ipi_compra','$n_apr_valor_credito_icm','$n_apr_perc_credito_icm','$n_apr_valor_frete','$n_apr_perc_frete','$n_apr_valor_desp_aces','$n_apr_perc_desp_aces','$n_apr_valor_desctos','$n_apr_perc_desctos','$n_apr_valor_financeiro','$n_apr_perc_financeiro',$n_apr_valor_custo_ope,
+$n_apr_perc_custo_ope,$n_apr_valor_impostos,$n_apr_perc_impostos,'$n_apr_comissao_vend','$n_apr_perc_vend','$n_apr_valor_lucro','$n_apr_perc_lucro','$n_apr_icm_saida','$n_apr_perc_icm_saida','$n_apr_valor_custo_venda','$n_apr_perc_custo_venda',NULL,NULL,'$i_apr_tipo_formacao','$i_apr_tipo_custo','$i_apr_lucro_sobre','$n_apr_perc_reducao','$n_apr_valor_lucro_zero','$n_apr_custo_medio','$n_apr_valor_nota_entrada','$s_apr_principio_ativo','$s_apr_nome_comercial','$s_apr_cla_toxologica','$s_apr_formulacao','$s_apr_primeiros_socorros','$s_apr_antidotos_tratamento','$s_apr_gru_quimico','$s_apr_composicao','$s_apr_sistema_alarme',
+$i_apr_exige_receituario,$i_apr_imagem,$i_apr_folha,$i_apr_fundo,$i_apr_moldura,$i_apr_produto,NULL,$n_apr_val_icms_substituicao,$n_apr_permite_venda_fracionada,'$n_apr_qtd_acumulada',NULL,'$s_apr_descricao_grades',$i_apr_inativa_produto_cp,$i_apr_permite_venda_zerada,'$s_apr_cfop_dentro_uf','$s_apr_cfop_fora_uf','$i_apr_exige_evento','$s_apr_modulacao','$s_apr_borda','$n_apr_qtd_embalagem','$n_apr_kgm2','$n_apr_consumo_metor','$s_apr_potencia','$s_apr_base',$s_apr_tensao,$i_apr_numero_lote,NULL,'$n_apr_preco_fabrica','$n_apr_pmc','$i_apr_medicacao_controlada','$i_apr_tab_medicacao_controlada','$i_apr_lista','$s_apr_desc_reduzida',
+'$i_apr_codigo_cnm','$s_apr_iat','$s_apr_ippt',NULL,'$i_apr_fator_conversao',NULL,'$n_apr_tabela4','$n_apr_tabela5','$n_apr_tabela6','$n_apr_tabela7','$n_apr_tabela8','$n_apr_tabela9','$n_apr_tabela10','$s_apr_dosagem',NULL,NULL,NULL,'$i_apr_imp_complem_na_nfe','$s_apr_hash','$i_apr_possui_garantia',$i_apr_possui_indice_tecnico,$i_apr_codigo_tem,$i_paf_ide,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'$i_apr_tipo_codificacao','$s_apr_operacao',NULL,'$s_apr_codigo_lei116',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,
+NULL,NULL,NULL,'$s_apr_cest',NULL,NULL,NULL,NULL,NULL,NULL,'$s_apr_escala_relevante','$s_apr_cnpj_relevante','$s_apr_cod_benef_fiscal','$s_apr_desc_anp',NULL,NULL,NULL)";
+$sql=pg_query($conexaol,$r1);
+if (!$sql){
+    echo $r1;
+    ?>
+        <!DOCTYPE html>
+    	<html>
+    	<head>
+		<center><img src="img/X.png"alt="1" heigth ="100px" width="100px" ></center>
+		
+		</head>
+		</html>
+		<?php header("Content-Type: text/html; charset=ISO-8859-1",true);?>
+		<?php
+        exit;
+    }
+}
+
+
+$excont=pg_query($conexaol,$cont);
+if (!$excont){
+    pg_close($conexaoc);
+    echo "<p style=background:#000000; align=center <br/><b><font size=30 color=#FF0000>ERRO!!! **Erro ao Contar produtos Coletados em Lages**</font></b></p>";
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <center><img src="img/X.png"alt="1" heigth ="100px" width="100px" ></center>
+	</head>
+	</html>
+	<?php header("Content-Type: text/html; charset=ISO-8859-1",true);?>
+	<?php
+    exit;    
+}
+$rscont=pg_fetch_array($excont);
+$qtdl=$rscont['count'];
+if ($qtdc <> $qtdl) {
+    echo "<script>alert('erro');</script>";
+    $excont=pg_query($conexaol,$cont);
+    $rscont=pg_fetch_array($excont);
+    $qtdl=$rscont['count'];
+}
+$comando=("select ccodproduto,i_apr_codigo_cnm,cuniproduto,cgruporduto,clinproduto,cmarproduto,cdepproduto from aprodutosl where ctipproduto = '0' LIMIT 1");
+$excomando=pg_query($conexaol,$comando);
+$rscomando=pg_fetch_array($excomando);
+$cod=$rscomando['ccodproduto'];
+$ncm=$rscomando['i_apr_codigo_cnm'];
+$un=$rscomando['cuniproduto'];
+$grupo=$rscomando['cgruporduto'];
+$linha=$rscomando['clinproduto'];
+$marca=$rscomando['cmarproduto'];
+$departamento=$rscomando['cdepproduto'];
+while ($cod <> ''){
+    $proc=("select ccodproduto from aprodutos where ccodproduto = '$cod'");
+    $exproc=pg_query($conexaol,$proc);
+    $rsexproc=pg_fetch_array($exproc);
+    if ($rsexproc == '') {
+        $proncm=("select *from ncm where i_ncm_codigo = '$ncm'");
+        $exproncm=pg_query($conexaol,$proncm);
+        $rsexproncm=pg_fetch_array($exproncm);
+        if ($rsexproncm == '') {
+            $com=pg_query($conexaol,"select logar('COPIA',1,0);INSERT INTO ncm(i_ncm_codigo, i_ncm_nome, n_ncm_mva, n_ncm_mva_reajustavel, n_ncm_reducao_mva)
+                    VALUES ('$ncm','','0.00','0.00','0.00')");
+                    if (!$com){
+                        pg_close($conexaol);pg_close($conexaoc);
+                        echo "<p style=background:#000000; align=center <br/><b><font size=30 color=#FF0000>ERRO!!! Ao Cadrastar NCM </font></b></p>";
+                        ?>
+                        <!DOCTYPE html>
+    					<html>
+    					<head>
+						<center><img src="img/X.png"alt="1" heigth ="100px" width="100px" ></center>
+						</head>
+						</html>
+						<?php header("Content-Type: text/html; charset=ISO-8859-1",true);?>
+						<?php
+                        exit;
+                    }                    
+        }
+        $procurandound=("select d_tun_descricao from tunidadeproduto where d_tun_descricao = '$un'");
+        $exprocurandound=pg_query($conexaol,$procurandound);
+        $rsprocurandound=pg_fetch_array($exprocurandound);
+        if($rsprocurandound == ''){
+            $com=pg_query($conexaol,"select logar('COPIA',1,0);INSERT INTO tunidadeproduto(d_tun_descricao, s_tun_complemento_desc) VALUES ('$un', '')");
+            if (!$com){
+                pg_close($conexaoc);pg_close($conexaol);
+                echo "<p style=background:#000000; align=center <br/><b><font size=30 color=#FF0000>ERRO!!! Ao Cadastar Unidade </font></b></p>";
+                ?>
+                        <!DOCTYPE html>
+    					<html>
+    					<head>
+						<center><img src="img/X.png"alt="1" heigth ="100px" width="100px" ></center>
+						</head>
+						</html>
+						<?php header("Content-Type: text/html; charset=ISO-8859-1",true);?>
+						<?php
+                        exit;
+			        }
+			    }
+			    if ($grupo > '0') {
+		        $sql="select ccodgrupo from tgrupo where ccodgrupo =$grupo ";
+			    $exsql=pg_query($conexaol,$sql);
+			    $rssql=pg_fetch_array($exsql);
+			    if ($rssql== '') {
+			        $sql="select ccodgrupo,cdesgrupo from tgrupo where ccodgrupo=$grupo";
+			        $exsql=pg_query($conexaoc,$sql);			        
+			        $rssql=pg_fetch_array($exsql);
+			        $grupo=$rssql['ccodgrupo'];
+			        $desgrupo=$rssql['cdesgrupo'];
+			        $com=pg_query($conexaol,"select logar('COPIA',1,0);INSERT INTO tgrupo(ccodgrupo, cdesgrupo, i_agr_imprime_eti) VALUES ($grupo,'$desgrupo',0);");
+			    }
+			    }
+			    if ($linha > '0') {     
+			    $sql="select ccodlinha from tlinha where ccodlinha =$linha ";
+			    $exsql=pg_query($conexaol,$sql);
+			    $rssql=pg_fetch_array($exsql);
+			    if ($rssql== '') {
+			        $sql="select ccodlinha,cdeslinha from tlinha where ccodlinha=$linha";
+			        $exsql=pg_query($conexaoc,$sql);
+			        $rssql=pg_fetch_array($exsql);
+			        $linha=$rssql['ccodlinha'];
+			        $deslinha=$rssql['cdeslinha'];
+			        $com=pg_query($conexaol,"select logar('COPIA',1,0);INSERT INTO tlinha(ccodlinha, cdeslinha, comi_tab, comi_des1, des1_de, des1_ate,comi_des2, des2_de, des2_ate, comi_des3, des3_de, des3_ate, comi_des4, 
+                    des4_de, des4_ate, comi_des5, des5_de, des5_ate, comi_acr1, acre1_de,acre1_ate, comi_des6, des6_de, des6_ate, comi_des7, des7_de,des7_ate, i_ali_comissao_8, i_ali_desconto_de_8, i_ali_desconto_ate_8, 
+                    i_ali_comissao_9, i_ali_desconto_de_9, i_ali_desconto_ate_9,i_ali_comissao_10, i_ali_desconto_de_10, i_ali_desconto_ate_10,i_ali_comissao_11, i_ali_desconto_de_11, i_ali_desconto_ate_11)
+                    VALUES ($linha,'$deslinha',0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00);");
+			    }
+			    }
+			    if ($departamento > '0') {
+			    $sql="select ccoddepartamento from tdepartamento where ccoddepartamento =$departamento";
+			    $exsql=pg_query($conexaol,$sql);
+			    $rssql=pg_fetch_array($exsql);
+			    if ($rssql== '') {
+			        $sql="select ccoddepartamento,cdesdepartamento from tdepartamento where ccoddepartamento=$departamento";
+			        $exsql=pg_query($conexaoc,$sql);
+			        $rssql=pg_fetch_array($exsql);
+			        $departamento=$rssql['ccoddepartamento'];
+			        $despartamento=$rssql['cdesdepartamento'];
+			        $com=pg_query($conexaol,"select logar('COPIA',1,0);INSERT INTO tdepartamento(ccoddepartamento, cdesdepartamento, c_disponivel_net, tipo_fotografo,i_dep_disponivel_banco, i_dep_etiqueta_pedido, i_dep_cor)
+                    VALUES ($departamento,'$despartamento',NULL,NULL,NULL,NULL,NULL);");
+			    }
+			    }			    
+			    if ($marca > '0') {			    
+			    $sql="select ccodmarca from tmarca where ccodmarca =$marca";
+			    $exsql=pg_query($conexaol,$sql);
+			    $rssql=pg_fetch_array($exsql);
+			    if ($rssql== '') {
+			        $sql="select ccodmarca,cdesmarca from tmarca where ccodmarca=$marca";
+			        $exsql=pg_query($conexaoc,$sql);
+			        $rssql=pg_fetch_array($exsql);
+			        $marca=$rssql['ccodmarca'];
+			        $desmarca=$rssql['cdesmarca'];
+			        $sql="INSERT INTO tmarca(ccodmarca, cdesmarca, cantigomarca) VALUES ($marca,'$desmarca',0)";
+			        $com=pg_query($conexaol,$sql);			       
+		            
+			    }
+			    }
+			    $com=pg_query($conexaol,"select logar('COPIA',1,0);insert into aprodutos select *from aprodutosl where ccodproduto = $cod;
+                delete from aprodutosl where ccodproduto = '$cod'");			    
+    }
+    pg_query ($conexaol,"delete from aprodutosl where ccodproduto = '$cod' ");
+    $comando=("select ccodproduto,i_apr_codigo_cnm,cuniproduto,cgruporduto,clinproduto,cmarproduto,cdepproduto from aprodutosl where ctipproduto = '0' LIMIT 1");
+    $excomando=pg_query($conexaol,$comando);
+    $rscomando=pg_fetch_array($excomando);
+    $cod=$rscomando['ccodproduto'];
+    $ncm=$rscomando['i_apr_codigo_cnm'];
+    $un=$rscomando['cuniproduto'];
+    $grupo=$rscomando['cgruporduto'];
+    $linha=$rscomando['clinproduto'];
+    $marca=$rscomando['cmarproduto'];
+    $departamento=$rscomando['cdepproduto'];
+}
+pg_close($conexaoc);pg_close($conexaol);
+ 
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <center><img src=img/okk.jpg alt="400" heigth ="400px" width="300px" ></center>
+</head>
+</html>
+
+
+
+

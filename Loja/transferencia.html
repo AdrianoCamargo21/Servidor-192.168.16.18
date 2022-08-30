@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Transferência</title>
+<center>
+<link rel="stylesheet" href="css/style.css"></link>
+<script language="JavaScript1.2">
+		<!--
+		var ns6=document.getElementById&&!document.all?1:0
+		var head="display:''"
+		var folder=''
+		function expandit(curobj){
+		folder=ns6?curobj.nextSibling.nextSibling.style:document.all[curobj.sourceIndex+1].style
+		if (folder.display=="none")
+		folder.display=""
+		else
+		folder.display="none"
+		}
+//-->
+</script>
+<table width="100%" cellspacing="1" cellpadding="3" border="5" bgcolor="#CEF6EC">
+<tr>
+<br><br>
+<br><br>
+<br><br>
+<td><font color="Black" face="arial, verdana, helvetica">
+<br><br>
+<center><h1>Este Modo e Somente Para Trânsferir Produtos que Ja Tenhãm Histórico na Outra Empresa</h1></center>
+<center><h5>Caso o Produto Não Tenha Saldo na Outra Empresa o Sistema Vai Gerar Um Pedido Informar Operador</h5></center>
+<center><h6>Versão de Teste Bloco X 23/09/2020 © A/C</h6></center><br><br>
+<center><img src="img/transferencia.png"alt="10" heigth ="100px" width="200px" ></center>
+<br><br>
+
+<center><form name = "form1" method= "post" action= "transferencia.php"> 
+Selecione a Empresa de Saida da Nfe:
+<select name="origem">
+<option value="1">Loja Tatiane</option>
+<option value="2">Loja Lucélia</option>
+<option value="3">Loja Adrielli</option>
+<option value="4">Loja Maynara</option>
+<option value="5">Loja Gislaine--Antigo</option>
+<option value="6">Loja Juciane</option>
+<option value="7">Loja Táis</option>
+<option value="8">Loja Nadia</option>
+<option value="9">Loja Shop/Videira</option>
+<option value="10">Loja Eliane</option>
+<option value="11">Loja Gislaine(Filial Atacadão)</option>
+<option value="12">Loja Lages Via Brasil</option>
+<option value="13">Loja Lages Atacadão</option>
+</center>
+</select> 
+<br><br/>
+Código Cliente Destino:			
+<input name= "cliente" type= "number" id="cliente"></p>
+
+Usuário:
+<input name= "login" type= "text" id="login">
+Senha: 	
+<input name= "senha" type= "password" id="senha">
+<br><br>
+<input type="radio" name="tipo" value="R" onClick="expandit(this)">Reimpresão de Nota Fiscal
+<span style="display:none" style=&{head};>
+<h4>Empresa Que Entrou a Nota Fiscal:</h4>
+<select name="destino">
+<option value="1">Loja Tatiane</option>
+<option value="2">Loja Lucélia</option>
+<option value="3">Loja Adrielli</option>
+<option value="4">Loja Maynara</option>
+<option value="5">Loja Gislaine--Antigo</option>
+<option value="6">Loja Juciane</option>
+<option value="7">Loja Táis</option>
+<option value="8">Loja Nadia</option>
+<option value="9">Loja Shop/Videira</option>
+<option value="10">Loja Eliane</option>
+<option value="11">Loja Gislaine(Filial Atacadão</option>
+</select></p>
+Numero Nfe:
+<input id="nfe" name= "nfe"  min="1"  maxlength="10">
+</span>
+<br><br>
+<center>
+
+<input class="btn btn-green" type="submit" value="ENVIAR"/>
+<input class="btn btn-red" type="reset" value="Cancelar" />		
+<br><br>	
+	
+	
+	
+		</center>
+		
+		
+
+ </font>
+   </td>
+</tr>
+</table>
+
+
+
+</center>
+
+</head>
+<body>
+<style>
+
+body { 
+
+background-image: url("img/gif.gif");
+
+background-attachment: fixed;
+
+	
+
+background-attachment: fixed;
+
+
+
+
+}
+
+
+</style>
+</body>
+</html>

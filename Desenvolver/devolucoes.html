@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+ <script tpye=text/javascript>
+var segundo=<?php echo $segundo;?>;
+var minuto=<?php echo $minuto;?>;
+var hora=<?php echo $hora_h;?>;
+ function tempo(){
+	  if (segundo<59){
+		   segundo=segundo+1
+		    if (segundo==59){
+			     minuto=minuto+1;
+			      segundo=0;
+			       if (hora==24){
+				        hora=hora+1;
+				         minuto=0;
+				          segundo=0;
+				           }
+		             }
+            }
+   document.getElementById("relogio").innerHTML=(hora+":"+minuto+":"+segundo);
+    }
+</script>
+</center>
+</HEAD>
+<meta name="GENERATOR" content="MAX's HTML Beauty++ ME">
+<body onload="setInterval('tempo();',1000)">
+
+<BODY>
+</BODY>
+<head>
+<center>
+<meta charset="ISO-8859-1">
+<title>ViaBrasil.bay</title>
+<link rel="stylesheet" href="css/style.css"></link>
+<center><img src="img/fundo1.jpg"alt="10" heigth ="100px" width="400px" ></center>
+<table width="1000" cellspacing="1" cellpadding="3" border="0" bgcolor="#ACFA58">
+<tr>
+<br><br>
+<td><font color="Black" face="arial, verdana, helvetica">
+<center><h1><font face="Arial" color="#04B404">Devoluções</font></h1></center>
+<center><img src="img/troca.png"alt="10" heigth ="100px" width="300px" ></center>
+
+
+
+<center><form name = "form1" method= "post" action= "devolucoes.php"> 
+Selecione a empresa:
+<br>
+<INPUT type="radio" name="empresa" value="1">Tati	
+<INPUT type="radio" name="empresa" value="2">Lucélia
+<INPUT type="radio" name="empresa" value="5">Maynara
+<INPUT type="radio" name="empresa" value="7">Vila
+<INPUT type="radio" name="empresa" value="9">Eliane
+<INPUT type="radio" name="empresa" value="11">Hilda
+<INPUT type="radio" name="empresa" value="13">Nadia
+<INPUT type="radio" name="empresa" value="15">Adrielle</P>
+
+Login:
+<input name= "login" type= "text"  id="login">
+Senha:
+<input name= "senha" type= "password" id="senha">
+<br><br/>
+Código do Produto:		
+<input name= "cod" type= "number" id="cod" min="1" >
+Quantidade:		
+<input name= "qtd" type= "number"  id="qtd" min="1" value="1" >
+<br>
+
+<script language="JavaScript1.2">
+<!--
+var ns6=document.getElementById&&!document.all?1:0
+var head="display:''"
+var folder=''
+function expandit(curobj){
+folder=ns6?curobj.nextSibling.nextSibling.style:document.all[curobj.sourceIndex+1].style
+if (folder.display=="none")
+folder.display=""
+else
+folder.display="none"
+}
+//-->
+</script>
+</head>
+<INPUT type="radio" name="tipo" checked="yes" checked="yes" value="I">Inclusão
+<INPUT type="radio" name="tipo" value="L">Lista de Pendentes
+<input type="radio" name="tipo" value="C" >Conferidos
+<input type="radio" name="tipo" value="T" >Todos os Usuários
+<input type="radio" name="tipo" value="E" onClick="expandit(this)">Exclusão
+<span style="display:none" style=&{head};>
+id:
+<input name= "id" type= "number" id="id" min="1" value="1" >
+</span>
+</center>
+<center>
+<input class="btn btn-green" type="submit" value="ENVIAR"/>
+<input class="btn btn-red" type="reset" value="Cancelar" />	
+<marquee behavior="slide"><h1> <div name="relogio" id="relogio"></div></h1> </marquee>
+
+	
+	
+	
+	
+		</center>
+		
+		
+</center>
+ </font>
+   </td>
+</tr>
+</table>
+
+
+
+
+
+</head>
+<body>
+
+</body>
+</html>

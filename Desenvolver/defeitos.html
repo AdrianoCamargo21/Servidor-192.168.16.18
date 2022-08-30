@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<center>
+<title>Defeitos</title>
+<link rel="stylesheet" href="css/style.css"></link>
+<center><img src="img/fundo1.jpg"alt="10" heigth ="100px" width="400px" ></center>
+<table width="1000" cellspacing="1" cellpadding="3" border="0" bgcolor="#ACFA58">
+<tr>
+<br><br>
+<td><font color="Black" face="arial, verdana, helvetica">
+<center><h1><font face="Arial" color="#FF4500">Defeitos:</font></h1></center>
+<center><img src="img/confeccoes.png"alt="10" heigth ="300px" width="300px" ></center>
+<center><form name = "form1" method= "post" action= "defeitos.php" >
+
+<script language="JavaScript1.2">
+<!--
+var ns6=document.getElementById&&!document.all?1:0
+var head="display:''"
+var folder=''
+function expandit(curobj){
+folder=ns6?curobj.nextSibling.nextSibling.style:document.all[curobj.sourceIndex+1].style
+if (folder.display=="none")
+folder.display=""
+else
+folder.display="none"
+}
+//-->
+</script>
+
+</head>
+<INPUT type="radio" name="tipo" value="L" onClick="expandit(this)">Listar
+<span style="display:none" style=&{head};>
+<center>
+<select name="filtro">
+<option value="1">Representante</option>
+<option value="2">Marca</option>
+<option value="3">Linha</option>
+<option value="4">Departamento</option>
+</select>
+</center>
+</span>
+<input type="radio" name="tipo" value="I" onClick="expandit(this)">Inclusão
+<span style="display:none" style=&{head};>
+<br>
+Código:
+<input name= "cod" type= "number" id="cod" min="1" value="1" max="999999" >
+<br>
+Representante:
+<input name= "rep" type= "text" id="rep" >
+Aonde Está:
+<input name= "loc" type= "text" id="loc" value="PRATELEIRA" >
+</span>
+
+<br>
+<center>
+<input class="btn btn-green" type="submit" value="ENVIAR"/>
+<input class="btn btn-red" type="reset"  value="Cancelar"  />
+		
+	
+
+	
+	
+		</center>
+		
+		
+
+ </font>
+   </td>
+</tr>
+</table>
+
+
+
+
+</center>
+</head>
+<body>
+
+</body>
+</html>

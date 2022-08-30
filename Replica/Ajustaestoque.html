@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<center>
+<meta charset="ISO-8859-1">
+<title>Ajuste de Estoque Bloco X</title>
+<link rel="stylesheet" href="css/style.css"></link>
+<table width="100%" cellspacing="1" cellpadding="3" border="0" bgcolor="#DCDCDC">
+<tr>
+<td><font color="Black" face="arial, verdana, helvetica">
+<center><img src="img/fundo1.png"alt="10" heigth ="100px" width="300px" ></center>
+<center><img src="img/inventario.jpg"  width="500px" ></center>
+<center><form name = "form1" method= "post" action= "Ajustaestoque.php">	
+<input type="radio" name="base" value="C" checked > Caçador
+<input type="radio" name="base" value="V" > Videira
+<input type="radio" name="base" value="J" > Joinville
+<input type="radio" name="base" value="L" > Lages
+<br><br>
+Empresa a ser manipulada:
+<input name= "empl" id="empl" type= "numeric"  value="1" min="0" size ="6" maxlength="10" autofocus >
+<br>
+Com data:
+<input  name= "data" type= "date"  >
+<br><br>
+<input class="btn btn-green" type="submit" value="ENVIAR"/>
+<input class="btn btn-red" type="reset" value="Cancelar" />		
+
+
+		</center>
+		
+		
+
+ </font>
+   </td>
+</tr>
+</table>
+
+
+</center>
+
+
+</head>
+</body>
+
+</html>

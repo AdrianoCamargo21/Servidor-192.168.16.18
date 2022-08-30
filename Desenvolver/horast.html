@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>ViaBrasil.bay</title>
+<link rel="stylesheet" href="css/style.css"></link>
+<center><img src="img/fundo1.jpg"alt="10" heigth ="100px" width="400px" ></center>
+<table width="1330" cellspacing="1" cellpadding="3" border="0" bgcolor="#ACFA58">
+<tr>
+<br><br>
+<td><font color="Black" face="arial, verdana, helvetica">
+<center><img src="img/dia.jpg"alt="10" heigth ="100px" width="300px" ></center>
+<center><form name = "form1" method= "post" action= "horast.php"> 
+Data:		
+<input name="data"  type= "date"  id="data" />
+<br>
+
+Ent.
+<input name = "entp" type= "time" id= "entp" value="00:00" >
+Sái.
+<input name = "saip" type= "time" id= "saip" value="00:00" ><br />
+Ent.
+<input name = "ents" type= "time" id= "ents" value="00:00" >
+Sái.
+<input name = "sais" type= "time" id= "sais" value="00:00" ><br />
+Ent.
+<input name = "entt" type= "time" id= "entt" value="00:00" >
+Sái.
+<input name = "sait" type= "time" id= "sait" value="00:00" >
+
+
+<br>
+
+
+
+<script language="JavaScript1.2">
+<!--
+var ns6=document.getElementById&&!document.all?1:0
+var head="display:''"
+var folder=''
+function expandit(curobj){
+folder=ns6?curobj.nextSibling.nextSibling.style:document.all[curobj.sourceIndex+1].style
+if (folder.display=="none")
+folder.display=""
+else
+folder.display="none"
+}
+//-->
+</script>
+</head>
+<INPUT type="radio" name="tipo" checked="yes" checked="yes" value="A">Ajudante
+<input type="radio" name="tipo" value="V" onClick="expandit(this)">Vendedor
+<span style="display:none" style=&{head};>
+<br>
+Cód.
+<input name= "id" type= "number" id="id" min="1"  max=200 value="1" >
+</span>
+</center>
+<center>
+<br>
+<input class="btn btn-green" type="submit" value="ENVIAR"/>
+<input class="btn btn-red" type="reset" value="Cancelar" />	
+<marquee behavior="slide"><h1> <div name="relogio" id="relogio"></div></h1> </marquee>
+
+	
+	
+	
+	
+		</center>
+		
+		
+</center>
+ </font>
+   </td>
+</tr>
+</table>
+
+
+
+
+
+</head>
+<body>
+
+</body>
+</html>

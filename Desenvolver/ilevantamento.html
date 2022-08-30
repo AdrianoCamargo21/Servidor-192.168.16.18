@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+ <script tpye=text/javascript>
+var segundo=<?php echo $segundo;?>;
+var minuto=<?php echo $minuto;?>;
+var hora=<?php echo $hora_h;?>;
+ function tempo(){
+	  if (segundo<59){
+		   segundo=segundo+1
+		    if (segundo==59){
+			     minuto=minuto+1;
+			      segundo=0;
+			       if (hora==24){
+				        hora=hora+1;
+				         minuto=0;
+				          segundo=0;
+				           }
+		             }
+            }
+   document.getElementById("relogio").innerHTML=(hora+":"+minuto+":"+segundo);
+    }
+</script>
+</center>
+</HEAD>
+<meta name="GENERATOR" content="MAX's HTML Beauty++ ME">
+<body onload="setInterval('tempo();',1000)">
+
+<BODY>
+</BODY>
+<head>
+<center>
+<meta charset="ISO-8859-1">
+<title>Levantamento</title>
+<link rel="stylesheet" href="css/style.css"></link>
+<center><img src="img/fundo1.jpg"alt="10" heigth ="100px" width="400px" ></center>
+<table width="1000" cellspacing="1" cellpadding="3" border="0" bgcolor="#ACFA58">
+<tr>
+<br><br>
+<td><font color="Black" face="arial, verdana, helvetica">
+<center><h1><font face="Arial" color="#04B404">Inclusão de Levantamento</font></h1></center>
+<center><img src="img/estoque.png"alt="10" heigth ="100px" width="300px" ></center>
+<script type="text/javascript">
+			function fMasc(objeto,mascara) {
+				obj=objeto
+				masc=mascara
+				setTimeout("fMascEx()",1)
+			}
+			function fMascEx() {
+				obj.value=masc(obj.value)
+			}		
+
+}
+
+			function mNum(num){
+				num=num.replace(/\D/g,"")
+				return num
+			}
+		</script>
+
+
+<center><form name = "form1" method= "post" action= "ilevantamento.php"> 
+<font face="Arial" color="black">Base:</font>
+
+<select name="base">
+<option value="1">Caçador</option>
+<option value="2">Lages</option>
+<option value="3">Videira</option>
+<option value="4">Joinville</option>
+<option value="5">Porto</option>
+</select>
+<br><br>
+
+<font face="Arial" color="black">Empresa:</font>
+<input id="emp" name= "emp" value="1,2" min="1" size ="4" maxlength="20"  >
+Estoque em:
+<input name= "data" id="data" type= "date"  value="0" min="0" size ="6" maxlength="20"  >
+<br><br>
+Descrição do Levantamento:
+<input name = "obs" type= "text" id= "obs">
+<br><br>
+Linha:		
+<input name= "lin" id="lin" value="0" min="0" size ="6" maxlength="100"  >
+Marca:		
+<input name= "mar" id="mar" value="0" min="0" size ="3" maxlength="20">
+Grupo:		
+<input name= "grup" id="grup" value="0" min="0" size ="3" maxlength="900">
+Departamento:		
+<input name= "dep" id="dep" value="0" min="0" size ="3" maxlength="20">
+<br><br>
+
+<center>
+<input class="btn btn-green" type="submit" value="ENVIAR"/>
+<input class="btn btn-red" type="reset" value="Cancelar" />	
+<marquee behavior="slide"><h1> <div name="relogio" id="relogio"></div></h1> </marquee>
+
+	
+	
+	
+	
+		</center>
+		
+		
+</center>
+ </font>
+   </td>
+</tr>
+</table>
+
+
+
+
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+Um efeito muito interessante no HTML é a possibilidade de colocar elementos, imagens e textos em movimento, utilizando uma simples tag e alguns comandos.
+A tag que tem a função de colocar movimento no HTML é a tag marquee.
+Exemplo:
+<marquee> 
+      Aqui vai o conteúdo que ficará em movimento! 
+</marquee>
+Comandos
+Alguns comandos de controle podem ser aplicados a tag marquee para melhorar o efeito. São eles:
+behavior
+Este comando possibilita o controle do efeito de movimento. Seus possíveis valores são:
+alternate: O conteúdo vai de um lado para outro e assim sucessivamente. Exemplo:
+<marquee behavior="alternate"> 
+      Conteúdo em movimento! 
+</marquee>
+slide: O conteúdo sai de um lado, pré-definido ou não, e para outro. Exemplo:
+<marquee behavior="slide"> 
+      Conteúdo em movimento! 
+</marquee>
+scroll: O conteúdo fica deslizando sempre no mesmo sentido. Exemplo:
+<marquee behavior="slide"> 
+      Conteúdo em movimento! 
+</marquee>
+scrollamount
+Comando que permite o controle da velocidade do conteúdo em movimento. Aceita como valor números maiores que zero.
+Exemplo:
+<marquee scrollamount="10"> 
+      Conteúdo em movimento! 
+</marquee>
+direction
+Indica para qual direção o conteúdo deve deslizar. Seus possíveis valores são:
+down: O conteúdo desliza de cima para baixo. Exemplo:
+<marquee direction="down"> 
+      Conteúdo em movimento! 
+</marquee>
+left: O conteúdo desliza da direita para a esquerda. Exemplo:
+<marquee direction="left"> 
+      Conteúdo em movimento! 
+</marquee>
+right: O conteúdo desliza da esquerda para a direita. Exemplo:
+<marquee direction="right"> 
+      Conteúdo em movimento! 
+</marquee>
+up: O conteúdo desliza de baixo para cima. Exemplo:
+<marquee direction="up"> 
+      Conteúdo em movimento! 
+</marquee>
+Slides
+Utilizando marquee e um pouco de CSS é possível criar slides mais simples, mas não menos funcionais, para sites e blogs.
+Exemplo:
+<marquee behavior="scroll" scrollamount="10" direction="left"> 
+      <a href="#"><img src="link_da_imagem"></a> 
+      <a href="#"><img src="link_da_imagem"></a> 
+      <a href="#"><img src="link_da_imagem"></a> 
+      <a href="#"><img src="link_da_imagem"></a> 
+      <a href="#"><img src="link_da_imagem"></a> 
+</marquee>
+Agora que você já tem o HTML, utilize os seus conhecimentos de CSS e crie um belo slide.
+
+Leia mais em: http://www.maikbasso.com.br/2012/03/efeito-de-movimento-com-marquee.html#ixzz5V8uDwXS9

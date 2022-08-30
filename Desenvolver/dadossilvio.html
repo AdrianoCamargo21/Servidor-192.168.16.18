@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dados Silvio</title>
+<center>
+<link rel="stylesheet" href="css/style.css"></link>
+<center><img src="img/fundo1.jpg"alt="10" heigth ="100px" width="400px" ></center>
+<script language="JavaScript1.2">
+<!--
+var ns6=document.getElementById&&!document.all?1:0
+var head="display:''"
+var folder=''
+function expandit(curobj){
+folder=ns6?curobj.nextSibling.nextSibling.style:document.all[curobj.sourceIndex+1].style
+if (folder.display=="none")
+folder.display=""
+else
+folder.display="none"
+}
+//-->
+</script>
+<script type="text/javascript">
+			function fMasc(objeto,mascara) {
+				obj=objeto
+				masc=mascara
+				setTimeout("fMascEx()",1)
+			}
+			function fMascEx() {
+				obj.value=masc(obj.value)
+			}
+			function mREF(ref){
+				ref=ref.replace(/\D/g,"")
+				ref=ref.replace(/^(\d{4})(\d)/,"$1/$2")				
+				return ref
+			}
+			function mNum(num){
+				num=num.replace(/\D/g,"")
+				return num
+			}
+		</script>
+<table width="100%" cellspacing="1" cellpadding="3" border="0" bgcolor="#BDBDBD">
+<tr>
+<br><br>
+<td><font color="Black" face="arial, verdana, helvetica">
+<center><img src="img/silvio.png"alt="10" heigth ="100px" width="100px" ></center>
+<center><h1><font face="Arial" color="Red">Dados Planilha Silvio:</font></h1></center>
+<center><form name = "form1" method= "post" action= "dadossilvio.php">	
+Data Em:		
+<input  name= "data" type= "date"  >
+<br>
+Planilha:
+<INPUT type="radio" name="base" value="C">Caçador 	
+<INPUT type="radio" name="base" value="L">Lages
+<INPUT type="radio" name="base" value="V">Videira
+<INPUT type="radio" name="base" value="D">Vendas
+<br>
+<input type="radio" name="base" value="A" onClick="expandit(this)" >Linhas De Confecções
+<span style="display:none" style=&{head};>
+<br>
+Departamento ou (0) Para Listar Todos: 	
+<input name= "delin" id="delin" value="0" min="0" size ="5" maxlength="200"><br>
+</span>
+<INPUT type="radio" name="base" value="B">Linhas Calçados
+<INPUT type="radio" name="base" value="E">Lojas Esportes
+<br>
+<input type="radio" name="base" value="F" onClick="expandit(this)" >Fechamento
+<span style="display:none" style=&{head};>
+<br>
+Referência:
+<input name= "ref" id="ref" type="text" onkeydown="javascript: fMasc( this, mREF );">
+</span>
+<input type="radio" name="base" value="VE" onClick="expandit(this)" >Vendas
+<span style="display:none" style=&{head};>
+<br>
+Atual:
+<br>
+De:
+<input  name= "datai" type= "date"  >
+Até:
+<input  name= "dataf" type= "date"  >
+<br>
+Anterior:
+De:
+<input  name= "dataia" type= "date"  >
+Até:
+<input  name= "datafa" type= "date"  >
+<br>
+</span>
+<input type="radio" name="base" value="RE" onClick="expandit(this)" >Relatório Marcas
+<span style="display:none" style=&{head};>
+<br>
+Linha: 	
+<input name= "linha" id="linha" value="0" min="0" size ="5" maxlength="200"><br>
+Grupo:	
+<input name= "grupo" id="grupo" value="0" min="0" size ="5" maxlength="200"><br>
+Depart:	
+<input name= "departa" id="departa" value="0" min="0" size ="5" maxlength="200">
+<br>
+</span>
+<input type="radio" name="base" value="REG" onClick="expandit(this)" >Relatório Grupos<br>
+<span style="display:none" style=&{head};>
+<br>
+Linha: 	
+<input name= "linha" id="linha" value="0" min="0" size ="5" maxlength="200"><br>
+Marca:	
+<input name= "marca" id="marca" value="0" min="0" size ="5" maxlength="200"><br>
+Depart:	
+<input name= "depart" id="depart" value="0" min="0" size ="5" maxlength="200">
+<br>
+</span>
+
+<input type="radio" name="base" value="REVL" onClick="expandit(this)" >Relatório Venda Por Linha(Qtd)
+<span style="display:none" style=&{head};>
+<br>
+Atual:
+<br>
+De:
+<input  name= "dataii" type= "date"  >
+Até:
+<input  name= "dataff" type= "date"  >
+<br>
+Anterior:
+De:
+<input  name= "dataiaa" type= "date"  >
+Até:
+<input  name= "datafaa" type= "date"  >
+<br>
+Linhas ou (0) Para Listar Todas: 	
+<input name= "linhaa" id="linhaa" value="0" min="0" size ="5" maxlength="200"><br>
+
+</span>
+
+<input type="radio" name="base" value="REVLC" onClick="expandit(this)" >Relatório Venda Por Linha(Custo)
+<span style="display:none" style=&{head};>
+<br>
+Atual:
+<br>
+De:
+<input  name= "dataiii" type= "date"  >
+Até:
+<input  name= "datafff" type= "date"  >
+<br>
+Anterior:
+De:
+<input  name= "dataiaaa" type= "date"  >
+Até:
+<input  name= "datafaaa" type= "date"  >
+<br>
+Linhas ou (0) Para Listar Todas: 	
+<input name= "linhaaa" id="linhaaa" value="0" min="0" size ="5" maxlength="200"><br>
+
+</span>
+<br><br/>
+<center>
+<input class="btn btn-green" type="submit" value="ENVIAR"/>
+<input class="btn btn-red" type="reset" value="Cancelar" />		
+</center>
+</font>
+</td>
+</tr>
+</table>
+</center>
+</head>
+</html>

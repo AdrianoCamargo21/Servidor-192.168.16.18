@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tranferência Estoques</title>
+<center>
+<link rel="stylesheet" href="css/style.css"></link>
+<center><img src="img/fundo1.jpg"alt="10" heigth ="100px" width="400px" ></center>
+<table width="100%" cellspacing="1" cellpadding="3" border="0" bgcolor="#BDBDBD">
+<tr>
+<br><br>
+<td><font color="Black" face="arial, verdana, helvetica">
+<center><img src="img/transfere.png"alt="10" heigth ="100px" width="400px" ></center>
+<center><h1><font face="Arial" color="Red">Lista De Produtos</font></h1></center>
+<center><form name = "form1" method= "post" action= "estoquetransferencia.php">	
+Data Em:		
+<input  name= "data" type= "date"  >
+<br>
+Tipo:
+<INPUT type="radio" name="tipo" value="S" checked="yes">Com Saldo 	
+<INPUT type="radio" name="tipo" value="N">Negativos
+<INPUT type="radio" name="tipo" value="J">Inventário Joinville
+<INPUT type="radio" name="tipo" value="V">Inventário Videira
+<INPUT type="radio" name="tipo" value="L">Inventário Lages
+<INPUT type="radio" name="tipo" value="C">Inventário Caçador
+<br><br/>
+<center>
+<input class="btn btn-green" type="submit" value="ENVIAR"/>
+<input class="btn btn-red" type="reset" value="Cancelar" />		
+</center>
+</font>
+</td>
+</tr>
+</table>
+</center>
+</head>
+</html>
